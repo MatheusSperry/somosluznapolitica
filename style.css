@@ -1,0 +1,128 @@
+@font-face {
+  font-family: 'Aonic';
+  src: url('Aonic-Medium.ttf') format('truetype');
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: black;
+  color: white;
+}
+
+.background-overlay {
+  background-image: url('background.png');
+  background-size: cover;
+  background-position: right;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+.top-bar {
+  background-color: #000;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #333;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  width: 80px;
+  height: auto;
+}
+
+h1 {
+  font-family: 'Aonic', sans-serif;
+  font-size: 3rem;
+  margin: 0;
+}
+
+.social a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.instagram-icon {
+  width: 24px;
+}
+
+section {
+  padding: 3rem 1rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+section.light {
+  background-color: #000;
+}
+
+section.dark {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+h2 {
+  font-family: 'Aonic', sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.versiculos p {
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.video iframe {
+  border-radius: 10px;
+  width: 100%;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.fotos {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.fotos img {
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #333;
+}
+
+.btn-whatsapp {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #25D366;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  border-top: 1px solid #444;
+}
