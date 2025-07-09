@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luz na Política</title>
+    <link rel="icon" href="LOGO_LUZ.png" type="image/png">
+    <style>
+        /* Importação da Fonte */
+        @font-face {
+            font-family: 'Aonic-Medium';
+            src: url('fonts/Aonic-Medium.tff') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Estilos Gerais */
+        body {
+            margin: 0;
+            font-family: 'Aonic-Medium', sans-serif;
+            color: #fff; /* Texto branco */
+            background-color: #000; /* Fallback caso a imagem não carregue */
+            background-image: url('background.jpg'); /* SUA IMAGEM DE ORAÇÃO DE FUNDO */
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Conteúdo alinhado ao topo, depois centralizado */
+            position: relative; /* Para o overlay */
+            overflow-x: hidden; /* Evita scroll horizontal */
+        }
+
+        /* Overlay para escurecer a imagem de fundo (mais denso para elegância) */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.85); /* MAIS ESCURO: Quase preto, mas a imagem aparece sutilmente */
+            z-index: -1;
+        }
+
+        /* Cabeçalho (para o Instagram) */
+        header {
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            box-sizing: border-box;
+            position: absolute; /* Fixo no topo */
+            top: 0;
+            right: 0;
+            z-index: 10;
+        }
+
+        .instagram-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding-right: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .instagram-link:hover {
+            color: #ccc;
+        }
+
+        /* Conteúdo Principal Centralizado (Flutuante, como no Pasa) */
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            max-width: 960px; /* Largura para o conteúdo geral */
+            width: 100%;
+            padding-top: 100px; /* Espaço para o cabeçalho fixo */
+            padding-bottom: 50px;
+            background-color: rgba(0, 0, 0, 0.2); /* Fundo muito sutil para a área principal */
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* Sombra suave para "flutuar" */
+            margin-top: 50px; /* Margem superior para separar do topo */
+            margin-bottom: 50px; /* Margem inferior antes do botão */
+        }
+
+        .logo-section {
+            margin-bottom: 30px;
+        }
+
+        .logo-section img {
+            max-width: 200px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5)); /* Brilho mais forte na logo */
+        }
+
+        .site-name {
+            font-size: 3.5em; /* Título maior, impactante */
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 5px; /* Mais espaçamento ainda */
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8); /* Brilho mais forte no texto */
+        }
+
+        /* Seção de Versículos (MAIS SUTIS, sem bloco de fundo próprio) */
+        .verses-section {
+            margin: 30px 0;
+            font-size: 1em;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.7); /* Cor mais transparente */
+            font-style: italic;
+            max-width: 600px; /* Limita a largura para melhor leitura */
+        }
+
+        .verses-section p {
+            margin-bottom: 12px;
+        }
+
+        .verses-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Seção "Sobre" (Ajustado para o estilo "chique" do Pasa) */
+        .about-section {
+            margin-top: 40px;
+            font-size: 1.1em; /* Mantendo o tamanho da fonte */
+            line-height: 1.9; /* Aumentando a altura da linha para mais espaço entre as linhas */
+            background-color: rgba(0, 0, 0, 0.5); /* Fundo um pouco mais opaco para o bloco de texto */
+            padding: 45px; /* Aumentando o padding para mais espaço interno */
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            text-align: justify;
+            max-width: 800px;
+            border: 1px solid rgba(255, 255, 255, 0.15); /* Borda sutil para definir o bloco */
+        }
+
+        /* Vídeo de Apresentação */
+        .video-container {
+            position: relative;
+            width: 90%; /* Ajuste a largura do vídeo dentro do main-content */
+            padding-bottom: 50.625%; /* Proporção 16:9, ajustado para 90% de largura (90% * 0.5625) */
+            height: 0;
+            overflow: hidden;
+            background-color: #000;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7); /* Sombra mais forte no vídeo */
+            max-width: 800px; /* Garante que o vídeo não exceda a largura do main-content */
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Botão Final */
+        .whatsapp-button {
+            display: inline-block;
+            background-color: #25D366;
+            color: #fff;
+            padding: 22px 45px; /* Botão ainda maior e mais impactante */
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.8em; /* Fonte ainda maior */
+            font-weight: bold;
+            margin-top: 60px;
+            margin-bottom: 80px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6); /* Sombra mais forte */
+        }
+
+        .whatsapp-button:hover {
+            background-color: #1DA851;
+            transform: translateY(-8px); /* Efeito de elevação maior */
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .main-content {
+                max-width: 90%; /* Ajusta a largura em telas médias */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .site-name {
+                font-size: 3em;
+                letter-spacing: 4px;
+            }
+            .logo-section img {
+                max-width: 180px;
+            }
+            .instagram-link {
+                font-size: 1em;
+                padding-right: 15px;
+            }
+            .verses-section {
+                font-size: 0.9em;
+                margin: 20px 0;
+            }
+            .about-section {
+                font-size: 1em;
+                padding: 30px;
+            }
+            .video-container {
+                 width: 100%; /* Vídeo ocupa toda a largura disponível no main-content */
+                 padding-bottom: 56.25%; /* Volta para a proporção padrão 16:9 */
+            }
+            .whatsapp-button {
+                font-size: 1.4em;
+                padding: 18px 35px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 10px;
+            }
+            .site-name {
+                font-size: 2.5em;
+                letter-spacing: 3px;
+            }
+            .logo-section img {
+                max-width: 150px;
+            }
+            .instagram-link {
+                font-size: 0.85em;
+                padding-right: 10px;
+            }
+            .verses-section {
+                font-size: 0.85em;
+            }
+            .about-section {
+                font-size: 0.95em;
+                padding: 25px;
+            }
+            .whatsapp-button {
+                font-size: 1.2em;
+                padding: 15px 30px;
+                margin-top: 50px;
+                margin-bottom: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="https://www.instagram.com/somosaluznapolitica" target="_blank" class="instagram-link">
+            @somosaluznapolitica
+        </a>
+    </header>
+
+    <main class="main-content">
+        <section class="logo-section">
+            <img src="LOGO_LUZ.png" alt="Logo Luz na Política">
+            <h1 class="site-name">Luz na Política</h1>
+        </section>
+
+        <section class="verses-section">
+            <p>"Vós sois a luz do mundo; não se pode esconder uma cidade edificada sobre um monte;"</p>
+            <p>— Mateus 5:14</p>
+            <br>
+            <p>"Tudo o que se manifesta é luz."</p>
+            <p>— Efésios 5:13</p>
+            <br>
+            <p>"Não vos conformeis com este século, mas transformai-vos pela renovação da vossa mente, para que experimenteis qual seja a boa, agradável e perfeita vontade de Deus."</p>
+            <p>— Romanos 12:2</p>
+        </section>
+
+        <section class="about-section">
+            <p>A iniciativa **Luz na Política** visa trazer a visão cristã para um meio que é, infelizmente, conhecido pela corrupção e mentiras. Nosso objetivo é levar as escrituras para esse ambiente, iluminando onde há trevas e promovendo princípios de verdade, justiça e integridade, fundamentados na Palavra de Deus. Acreditamos que a fé e a ética cristã podem e devem influenciar positivamente a esfera pública, transformando realidades e construindo um futuro melhor para todos.</p>
+        </section>
+
+        <section class="video-section">
+            <div class="video-container">
+                <iframe
+                    src="http://googleusercontent.com/youtube.com/9"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+        <section class="button-section">
+            <a href="https://chat.whatsapp.com/Gj4S4D9vXLvAyjk3bCpmdX?mode=ac_c" target="_blank" class="whatsapp-button">
+                QUER FAZER PARTE DA LUZ?
+            </a>
+        </section>
+    </main>
+
+</body>
+</html>
