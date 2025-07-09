@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Luz na Política</title>
+
+<!-- Fonte Aonic-Medium local .ttf -->
+<style>
+  @font-face {
+    font-family: 'Aonic-Medium';
+    src: url('Aonic-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  body {
+    margin: 0;
+    font-family: 'Aonic-Medium', sans-serif;
+    background: #000;
+    color: #fff;
+  }
+  /* Barra superior preta */
+  header {
+    background-color: #000;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-bottom: 1px solid #222;
+  }
+  /* Logo centralizada */
+  header img.logo {
+    height: 50px;
+    user-select: none;
+  }
+  /* Instagram no canto direito */
+  .instagram-link {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  .instagram-link:hover {
+    color: #6cdc6c;
+  }
+  .instagram-link svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+
+  /* Layout dividido com fundo e conteúdo */
+  main {
+    display: flex;
+    min-height: calc(100vh - 70px);
+    overflow: hidden;
+  }
+  /* Lado esquerdo: imagem de fundo com opacidade */
+  .left-side {
+    flex: 1;
+    background: url('background.png') center center/cover no-repeat;
+    opacity: 0.15;
+    position: relative;
+  }
+  /* Overlay preto suave pra escurecer fundo */
+  .left-side::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #000;
+    opacity: 0.65;
+    pointer-events: none;
+  }
+
+  /* Lado direito: conteúdo principal */
+  .right-side {
+    flex: 1;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 50px;
+  }
+  .right-side h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+  .right-side p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    line-height: 1.4;
+    max-width: 500px;
+  }
+  /* Vídeo embutido */
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 600px;
+    margin-bottom: 50px;
+  }
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(108, 220, 108, 0.6);
+  }
+
+  /* Botão no final para convite WhatsApp */
+  .btn-whatsapp {
+    display: inline-block;
+    background: #6cdc6c;
+    color: #000;
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding: 18px 40px;
+    border-radius: 40px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(108, 220, 108, 0.7);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    max-width: fit-content;
+  }
+  .btn-whatsapp:hover {
+    background: #54b952;
+    box-shadow: 0 6px 16px rgba(84, 185, 82, 0.9);
+  }
+  /* Texto do botão centralizado */
+  .btn-whatsapp span {
+    display: block;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  /* Animações suaves */
+  main, header {
+    animation: fadeIn 1s ease forwards;
+  }
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  /* Responsividade */
+  @media(max-width: 900px) {
+    main {
+      flex-direction: column;
+    }
+    .left-side, .right-side {
+      flex: none;
+      width: 100%;
+      min-height: 300px;
+    }
+    .right-side {
+      padding: 30px 20px;
+      text-align: center;
+    }
+    .right-side h1 {
+      font-size: 2.4rem;
+    }
+    .btn-whatsapp {
+      font-size: 1.3rem;
+      padding: 15px 30px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="LOGO_LUZ.png" alt="Logo Luz na Política" class="logo" />
+  <a href="https://instagram.com/somosaluznapolitica" target="_blank" rel="noopener noreferrer" class="instagram-link" aria-label="Instagram Somos Luz na Política">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5a4.25 4.25 0 00-4.244 4.045l-.006.205v8.5a4.25 4.25 0 004.045 4.244l.205.006h8.5a4.25 4.25 0 004.244-4.045l.006-.205v-8.5a4.25 4.25 0 00-4.045-4.244L16.25 3.5h-8.5zm8.123 3.373a1 1 0 11-2 0 1 1 0 012 0zm-4.123 1.127a4.75 4.75 0 110 9.5 4.75 4.75 0 010-9.5zm0 1.5a3.25 3.25 0 100 6.5 3.25 3.25 0 000-6.5z"/></svg>
+    @somosaluznapolitica
+  </a>
+</header>
+
+<main>
+  <section class="left-side"></section>
+
+  <section class="right-side">
+    <h1>Projeto Luz na Política</h1>
+    <p>Um projeto com visão cristã para transformar a política, valorizando princípios éticos e o bem comum.</p>
+
+    <div class="video-wrapper">
+      <iframe 
+        src="https://www.youtube.com/embed/LZIpZfivOsA" 
+        title="Apresentação Luz na Política" 
+        allowfullscreen
+        loading="lazy"
+        ></iframe>
+    </div>
+
+    <a href="https://chat.whatsapp.com/Gj4S4D9vXLvAyjk3bCpmdX?mode=ac_c" target="_blank" rel="noopener noreferrer" class="btn-whatsapp" aria-label="Convite grupo WhatsApp Luz na Política">
+      <span>QUER FAZER PARTE DO LUZ?</span>
+    </a>
+  </section>
+</main>
+
+</body>
+</html>
